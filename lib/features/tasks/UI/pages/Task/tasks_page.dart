@@ -15,7 +15,7 @@ class TasksPage extends ConsumerWidget {
     final filter = ref.watch(taskFilterProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Tareas')),
+      appBar: AppBar(title: const Text('Tasks')),
       body: tasksAsync.when(
         data: (tasks) {
           List<TaskModel> filteredTasks = tasks.where((task) {

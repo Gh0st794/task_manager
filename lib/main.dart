@@ -6,10 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+enum AppMenu { tasks, countries }
+
+final selectedMenuProvider = StateProvider<AppMenu>((ref) => AppMenu.tasks);
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Hive
   await Hive.initFlutter();
   Hive.registerAdapter(TaskModelAdapter());
   await Hive.openBox<TaskModel>('tasksBox');
@@ -23,46 +26,58 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Gestor de Tareas Avanzado',
+      title: 'Advanced Task Manager',
       theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.blue),
       home: const HomePage(),
     );
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends ConsumerWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final selectedMenu = ref.watch(selectedMenuProvider);
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Gestor de Tareas Avanzado')),
-      body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const TasksPage()),
-                );
-              },
-              child: const Text('View Tasks'),
+      body: Row(
+        children: [
+          Container(
+            width: 220,
+            color: Colors.grey.shade200,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                const SizedBox(height: 40),
+                ListTile(
+                  leading: const Icon(Icons.task),
+                  title: const Text('Tasks'),
+                  selected: selectedMenu == AppMenu.tasks,
+                  selectedTileColor: Colors.blue.shade100,
+                  onTap: () => ref.read(selectedMenuProvider.notifier).state =
+                      AppMenu.tasks,
+                ),
+                ListTile(
+                  leading: const Icon(Icons.language),
+                  title: const Text('Countries'),
+                  selected: selectedMenu == AppMenu.countries,
+                  selectedTileColor: Colors.blue.shade100,
+                  onTap: () => ref.read(selectedMenuProvider.notifier).state =
+                      AppMenu.countries,
+                ),
+              ],
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CountriesPage(),
-                  ),
-                );
-              },
-              child: const Text('View Countries'),
+          ),
+          Expanded(
+            child: AnimatedSwitcher(
+              duration: const Duration(milliseconds: 300),
+              child: selectedMenu == AppMenu.tasks
+                  ? const TasksPage(key: ValueKey('TasksPage'))
+                  : const CountriesPage(key: ValueKey('CountriesPage')),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

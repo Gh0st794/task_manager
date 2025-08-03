@@ -1,3 +1,4 @@
+import 'package:adv_task_manager/core/constants/constants.dart';
 import 'package:adv_task_manager/core/providers/graphql_client_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
@@ -7,19 +8,7 @@ final countriesProvider = FutureProvider<List<Map<String, dynamic>>>((
 ) async {
   final client = ref.watch(graphqlClientProvider);
 
-  const query = r'''
-    query {
-      countries {
-        code
-        name
-        emoji
-        capital
-        continent {
-          name
-        }
-      }
-    }
-  ''';
+  final query = Constants.countriesQuery;
 
   final result = await client.query(QueryOptions(document: gql(query)));
 
