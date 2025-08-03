@@ -122,23 +122,6 @@ MIT License — [LICENSE](LICENSE)
 
 ---
 
-## 🖼️ Screenshots (Optional)
-
-![Task List Screen](assets/screenshots/task_list.png "Task List Screen")
-![Task Detail Screen](assets/screenshots/task_detail.png "Task Detail Screen")
-![Countries GraphQL Screen](assets/screenshots/countries_screen.png "Countries Screen")
-
----
-
-## 📈 Potential Enhancements
-- Offline synchronization with remote APIs.
-- Responsive UI for Tablet/Desktop.
-- Integration Tests for E2E workflows.
-- CI/CD Pipeline.
-- Dark Mode Support.
-
----
-
 ## 🔗 Useful Links
 - [Flutter Documentation](https://flutter.dev/docs)
 - [Riverpod Documentation](https://riverpod.dev)
