@@ -23,6 +23,7 @@ _A Flutter application for advanced task management, using **Clean Architecture*
 - View tasks: **All**, **Completed**, **Pending**.
 - Mark tasks as **Completed**.
 - View task details and **edit** them.
+- Swipe task to **delete**.
 - **Create** new tasks using a form.
 
 ### Data Persistence & APIs
