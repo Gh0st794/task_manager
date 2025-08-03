@@ -1,70 +1,70 @@
-Advanced Task Manager
-A Flutter application for advanced task management, built using Clean Architecture, Riverpod for state management, and consuming both REST and GraphQL APIs.
+🚀 Advanced Task Manager
+A Flutter application for advanced task management, following Clean Architecture, using Riverpod for state management, and consuming both REST and GraphQL APIs with local persistence via Hive.
 
 📋 Overview
-This app allows users to create, list, edit, and filter tasks with local persistence (Hive) and synchronization from remote REST and GraphQL APIs. The project follows Clean Architecture principles to ensure a clean separation of concerns and maintainability.
+The Advanced Task Manager allows users to manage their tasks efficiently with features like creation, editing, filtering, and completion status updates. The application integrates data from REST and GraphQL APIs, ensuring seamless synchronization with persistent local storage.
 
+The project emphasizes clean code practices by implementing Clean Architecture principles, making it maintainable, scalable, and testable.
 
-🚀 Features
-Task list with filtering options:
+✨ Features
+Task Listing with:
 
-View all, completed, or pending tasks
+Filter by All, Completed, or Pending tasks.
 
-Mark tasks as completed
+Mark tasks as Completed.
 
-Task detail screen with edit functionality
+Task Detail Screen for editing task information.
 
-Create new tasks
+Create & Edit tasks.
 
-Local persistence using Hive
+Local Persistence using Hive for offline access.
 
-REST API consumption to load initial tasks (jsonplaceholder.typicode.com)
+REST API Integration (jsonplaceholder.typicode.com) to fetch initial tasks.
 
-GraphQL API consumption to display a list of countries (example: countries.trevorblades.com)
+GraphQL API Integration (countries.trevorblades.com) to display a list of countries.
 
-Clean Architecture (Presentation, Domain, Data layers)
+Clean Architecture with layered separation:
 
-State management with Riverpod
+Presentation
 
-Immutable models with Freezed
+Domain
 
-Loading and error state handling
+Data
 
-Unit and widget tests for business logic and UI
+State Management using Riverpod.
 
+Immutable Models using Freezed.
+
+Loading & Error States Handling.
+
+Unit & Widget Testing for business logic and UI validation.
 
 🛠️ Tech Stack
-Flutter & Dart
+Technology	Purpose
+Flutter & Dart	Application framework
+Riverpod	State management
+Hive	Local data persistence
+Dio	REST API client
+graphql_flutter	GraphQL client
+Freezed	Immutable data models
+Mocktail	Mocking for tests
+Flutter Test	Unit & Widget testing
 
-Riverpod: state management
-
-Hive: local storage
-
-Dio: REST HTTP client
-
-graphql_flutter: GraphQL client
-
-Freezed: immutable model generation
-
-Mocktail: mocking in tests
-
-Flutter Test: for unit and widget testing
-
-📦 Installation
-Clone the repository
+📦 Installation Guide
+Clone the Repository
 
 bash
 Copy
 Edit
 git clone <repository-url>
 cd adv_task_manager
-Install dependencies
+Install Dependencies
 
 bash
 Copy
 Edit
 flutter pub get
-Initialize Hive (preferably in main.dart or setup)
+Initialize Hive (usually in main.dart)
 
 dart
 Copy
@@ -72,44 +72,58 @@ Edit
 await Hive.initFlutter();
 Hive.registerAdapter(TaskModelAdapter());
 await Hive.openBox<TaskModel>('tasksBox');
-Run the application
+Run the App
 
 bash
 Copy
 Edit
 flutter run
 🧪 Testing
-Run all tests (unit and widget):
+Run all unit and widget tests:
 
 bash
 Copy
 Edit
 flutter test
-The project includes:
+Tests included:
 
-A unit test for business logic in TasksNotifier
+✅ Unit Test: Business logic validation for TasksNotifier.
 
-A widget test to verify that tasks are correctly displayed in the UI
+✅ Widget Test: Verifies tasks are displayed correctly in the UI.
 
-🏗 Architecture
-The app is structured following Clean Architecture principles with clear separation into layers:
+🏗️ Architecture Breakdown
+The project is structured with Clean Architecture, ensuring high modularity and separation of concerns:
 
-Presentation: Widgets and Riverpod Providers
+Presentation Layer: Flutter UI Widgets, Riverpod Providers.
 
-Domain: Business logic and immutable models (Freezed)
+Domain Layer: Business logic, Use Cases, Freezed Models.
 
-Data: Local and remote datasources (Hive, REST, GraphQL)
+Data Layer: Repositories, Local Datasource (Hive), Remote Datasources (REST & GraphQL APIs).
 
-This approach promotes maintainability, testability, and scalability.
+This structure enhances:
 
-📚 Usage
-On the main screen, view and filter tasks by status, and mark tasks as completed.
+Maintainability
 
-Tap a task to view its details and edit information.
+Testability
 
-Use the floating action button to create new tasks.
+Scalability
 
-Navigate to the Countries screen to view data fetched from a GraphQL API.
+📚 Usage Instructions
+Open the app to see the Task List Screen.
+
+Filter tasks by:
+
+All
+
+Completed
+
+Pending
+
+Tap a task to view/edit its details.
+
+Use the Floating Action Button (FAB) to create new tasks.
+
+Navigate to the Countries Screen to see a list of countries fetched from a GraphQL API.
 
 📄 License
-MIT License
+This project is licensed under the MIT License.
