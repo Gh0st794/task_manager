@@ -8,7 +8,7 @@ _A Flutter application for advanced task management, using **Clean Architecture*
 
 **Advanced Task Manager** is designed to:
 
-- FLutter version: 3.32.8.
+- Flutter version: 3.32.8.
 - Dart versiom: 3.8.1.
 - Create, edit, and filter tasks.
 - Persist tasks locally using **Hive**.
