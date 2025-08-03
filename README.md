@@ -1,129 +1,148 @@
-🚀 Advanced Task Manager
-A Flutter application for advanced task management, following Clean Architecture, using Riverpod for state management, and consuming both REST and GraphQL APIs with local persistence via Hive.
 
-📋 Overview
-The Advanced Task Manager allows users to manage their tasks efficiently with features like creation, editing, filtering, and completion status updates. The application integrates data from REST and GraphQL APIs, ensuring seamless synchronization with persistent local storage.
+# Advanced Task Manager
 
-The project emphasizes clean code practices by implementing Clean Architecture principles, making it maintainable, scalable, and testable.
+_A Flutter application for advanced task management, using **Clean Architecture**, **Riverpod**, and consuming both **REST** and **GraphQL APIs**._
 
-✨ Features
-Task Listing with:
+---
 
-Filter by All, Completed, or Pending tasks.
+## 📋 Overview
 
-Mark tasks as Completed.
+**Advanced Task Manager** is designed to:
 
-Task Detail Screen for editing task information.
+- Create, edit, and filter tasks.
+- Persist tasks locally using **Hive**.
+- Synchronize tasks via **REST API** and fetch country data via **GraphQL API**.
+- Follow **Clean Architecture** for maintainability and scalability.
 
-Create & Edit tasks.
+---
 
-Local Persistence using Hive for offline access.
+## 🚀 Features
 
-REST API Integration (jsonplaceholder.typicode.com) to fetch initial tasks.
+### Task Management
+- View tasks: **All**, **Completed**, **Pending**.
+- Mark tasks as **Completed**.
+- View task details and **edit** them.
+- **Create** new tasks using a form.
 
-GraphQL API Integration (countries.trevorblades.com) to display a list of countries.
+### Data Persistence & APIs
+- Local storage using **Hive**.
+- Fetch initial tasks from **jsonplaceholder.typicode.com**.
+- Fetch country data via **countries.trevorblades.com GraphQL API**.
 
-Clean Architecture with layered separation:
+### Architecture & Tools
+- **Clean Architecture**: Presentation, Domain, Data layers.
+- **Riverpod** for state management.
+- **Freezed** for immutable models.
+- **Dio** for REST API requests.
+- **graphql_flutter** for GraphQL consumption.
+- Error & loading state handling.
+- Unit & Widget tests for business logic and UI.
 
-Presentation
+---
 
-Domain
+## 🛠️ Tech Stack
 
-Data
+| Technology         | Description                                  |
+|--------------------|----------------------------------------------|
+| **Flutter & Dart**  | Cross-platform app framework                |
+| **Riverpod**        | State management                           |
+| **Hive**            | Local persistence                         |
+| **Dio**             | REST HTTP client                          |
+| **graphql_flutter** | GraphQL client                            |
+| **Freezed**         | Immutable model generation                 |
+| **Mocktail**        | Mocking library for tests                  |
+| **Flutter Test**    | Testing framework for unit & widget tests  |
 
-State Management using Riverpod.
+---
 
-Immutable Models using Freezed.
+## 📦 Installation Guide
 
-Loading & Error States Handling.
-
-Unit & Widget Testing for business logic and UI validation.
-
-🛠️ Tech Stack
-Technology	Purpose
-Flutter & Dart	Application framework
-Riverpod	State management
-Hive	Local data persistence
-Dio	REST API client
-graphql_flutter	GraphQL client
-Freezed	Immutable data models
-Mocktail	Mocking for tests
-Flutter Test	Unit & Widget testing
-
-📦 Installation Guide
-Clone the Repository
-
-bash
-Copy
-Edit
+### 1. Clone the Repository
+```bash
 git clone <repository-url>
 cd adv_task_manager
-Install Dependencies
+```
 
-bash
-Copy
-Edit
+### 2. Install Dependencies
+```bash
 flutter pub get
-Initialize Hive (usually in main.dart)
+```
 
-dart
-Copy
-Edit
+### 3. Initialize Hive in `main.dart`
+```dart
 await Hive.initFlutter();
 Hive.registerAdapter(TaskModelAdapter());
 await Hive.openBox<TaskModel>('tasksBox');
-Run the App
+```
 
-bash
-Copy
-Edit
+### 4. Run the App
+```bash
 flutter run
-🧪 Testing
-Run all unit and widget tests:
+```
 
-bash
-Copy
-Edit
+---
+
+## 🧪 Running Tests
+
+```bash
 flutter test
-Tests included:
+```
 
-✅ Unit Test: Business logic validation for TasksNotifier.
+**Tests included:**
+1. Unit Test for business logic in `TasksNotifier`.
+2. Widget Test verifying UI rendering of tasks.
 
-✅ Widget Test: Verifies tasks are displayed correctly in the UI.
+---
 
-🏗️ Architecture Breakdown
-The project is structured with Clean Architecture, ensuring high modularity and separation of concerns:
+## 🏗 Architecture
 
-Presentation Layer: Flutter UI Widgets, Riverpod Providers.
+| Layer             | Responsibilities                                         |
+|-------------------|---------------------------------------------------------|
+| **Presentation**   | UI Widgets, Pages, Riverpod Providers                   |
+| **Domain**         | Business Logic, Entities, Freezed Immutable Models      |
+| **Data**           | Local (Hive) & Remote (REST, GraphQL) Datasources       |
 
-Domain Layer: Business logic, Use Cases, Freezed Models.
+> _This structure enhances scalability, testability, and clean separation of concerns._
 
-Data Layer: Repositories, Local Datasource (Hive), Remote Datasources (REST & GraphQL APIs).
+---
 
-This structure enhances:
+## 📚 Usage Guide
 
-Maintainability
+1. **View & Filter Tasks** on the main screen.
+2. **Mark tasks as completed** by tapping the icon.
+3. **Tap a task** to view and edit its details.
+4. Use the **Floating Action Button** to add new tasks.
+5. Navigate to the **Countries Screen** to view GraphQL data.
 
-Testability
+---
 
-Scalability
+## 📄 License
 
-📚 Usage Instructions
-Open the app to see the Task List Screen.
+MIT License — [LICENSE](LICENSE)
 
-Filter tasks by:
+---
 
-All
+## 🖼️ Screenshots (Optional)
 
-Completed
+![Task List Screen](assets/screenshots/task_list.png "Task List Screen")
+![Task Detail Screen](assets/screenshots/task_detail.png "Task Detail Screen")
+![Countries GraphQL Screen](assets/screenshots/countries_screen.png "Countries Screen")
 
-Pending
+---
 
-Tap a task to view/edit its details.
+## 📈 Potential Enhancements
+- Offline synchronization with remote APIs.
+- Responsive UI for Tablet/Desktop.
+- Integration Tests for E2E workflows.
+- CI/CD Pipeline.
+- Dark Mode Support.
 
-Use the Floating Action Button (FAB) to create new tasks.
+---
 
-Navigate to the Countries Screen to see a list of countries fetched from a GraphQL API.
-
-📄 License
-This project is licensed under the MIT License.
+## 🔗 Useful Links
+- [Flutter Documentation](https://flutter.dev/docs)
+- [Riverpod Documentation](https://riverpod.dev)
+- [Hive Documentation](https://docs.hivedb.dev)
+- [GraphQL Flutter](https://pub.dev/packages/graphql_flutter)
+- [JsonPlaceholder API](https://jsonplaceholder.typicode.com)
+- [TrevorBlades GraphQL API](https://countries.trevorblades.com)
