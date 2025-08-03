@@ -2,7 +2,8 @@
 # Advanced Task Manager
 
 _A Flutter application for advanced task management, using **Clean Architecture**, **Riverpod**, and consuming both **REST** and **GraphQL APIs**._
-
+_FLutter version: Flutter 3.32.8._
+_Dart versiom: 3.8.1._
 ---
 
 ## 📋 Overview
