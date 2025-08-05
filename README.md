@@ -118,12 +118,6 @@ flutter test
 
 ---
 
-## 📄 License
-
-MIT License — [LICENSE](LICENSE)
-
----
-
 ## 🔗 Useful Links
 - [Flutter Documentation](https://flutter.dev/docs)
 - [Riverpod Documentation](https://riverpod.dev)
